@@ -1,14 +1,14 @@
-/// <reference types="vitest" />
-import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react"
+import { defineConfig, loadEnv } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  base: '/', // 👈 replace with your repo name
-  plugins: [react()],
-  test: {
-    globals: true,         // allows using expect/describe without import
-    environment: "jsdom",  // simulates browser
-    setupFiles: "./setupTests.ts",
-  },
-})
+export default ({ mode }: { mode: string }) => {
+  const env = loadEnv(mode, process.cwd(), 'VITE_')
+
+  return defineConfig({
+    base: mode === 'prod' ? '/Ecom-React-UI/' : '/',  // root for local/dev/qa/uat
+    plugins: [react()],
+    define: {
+      __APP_ENV__: env.VITE_APP_ENV
+    }
+  })
+}
