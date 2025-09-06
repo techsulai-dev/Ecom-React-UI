@@ -7,3 +7,4 @@ export default defineConfig(() => {
   // base: mode === 'production' ? '/Ecom-React-UI/' : '/', // 👈 switch base by mode
   };
 });
+ 
