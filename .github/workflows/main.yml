@@ -1,4 +1,4 @@
-name: main
+name: Build
 
 on:
   push:
@@ -21,8 +21,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: UI/ecom-quickcommerce
 
       - name: Run build
         run: npm run build
-        working-directory: UI/ecom-quickcommerce
