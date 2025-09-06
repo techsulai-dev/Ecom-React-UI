@@ -9,9 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: UI/ecom-quickcommerce   # 👈 adjust if needed
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -23,10 +21,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: UI/ecom-quickcommerce
 
       - name: Run build
         run: npm run build
+        working-directory: UI/ecom-quickcommerce
 
-      # Optional: placeholder test step that always passes
       - name: Run tests
         run: echo "No tests yet. Skipping..."
+        working-directory: UI/ecom-quickcommerce
