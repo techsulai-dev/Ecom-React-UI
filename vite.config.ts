@@ -12,7 +12,7 @@ export default ({ mode }: { mode: string }) => {
     prod: '/Ecom-React-UI/',  // GitHub Pages requires repo name as base
   } 
   return defineConfig({
-    base: baseMap[mode] || '/',
+    base: baseMap[mode],
     plugins: [react()],
     define: {
       __APP_ENV__: env.VITE_APP_ENV
