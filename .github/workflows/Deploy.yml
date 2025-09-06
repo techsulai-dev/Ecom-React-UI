@@ -26,17 +26,15 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        working-directory: UI/ecom-quickcommerce
         run: npm install
 
       - name: Build project
-        working-directory: UI/ecom-quickcommerce
         run: npm run build
 
       - name: Upload production-ready build
         uses: actions/upload-pages-artifact@v3
         with:
-          path: UI/ecom-quickcommerce/dist
+          path: dist
 
   deploy:
     needs: build
